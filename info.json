@@ -1,0 +1,157 @@
+{
+  "identifier": "com.custom.ai.translate.universal",
+  "version": "1.4.0",
+  "category": "translate",
+  "name": "AI 通用翻译",
+  "summary": "使用 OpenAI Chat、Responses 或 Claude Messages 接口进行流式 AI 翻译，支持自定义请求参数与请求头。",
+  "homepage": "https://github.com/Fowayhq/bob-plugin-ai-translate-universal",
+  "appcast": "https://raw.githubusercontent.com/Fowayhq/bob-plugin-ai-translate-universal/main/appcast.json",
+  "minBobVersion": "1.8.0",
+  "options": [
+    {
+      "identifier": "apiFormat",
+      "type": "menu",
+      "title": "API 格式",
+      "defaultValue": "chat",
+      "desc": "只保留三种标准格式。",
+      "menuValues": [
+        {
+          "title": "OpenAI Chat Completions（默认）",
+          "value": "chat"
+        },
+        {
+          "title": "OpenAI Responses",
+          "value": "responses"
+        },
+        {
+          "title": "Anthropic Claude Messages",
+          "value": "claude"
+        }
+      ]
+    },
+    {
+      "identifier": "urlMode",
+      "type": "menu",
+      "title": "URL 方式",
+      "defaultValue": "auto",
+      "desc": "自动补充标准端点；完整 URL 模式完全原样请求。",
+      "menuValues": [
+        {
+          "title": "自动补充接口路径",
+          "value": "auto"
+        },
+        {
+          "title": "完整 URL 原样使用",
+          "value": "manual"
+        }
+      ]
+    },
+    {
+      "identifier": "apiURL",
+      "type": "text",
+      "title": "API 地址",
+      "defaultValue": "https://api.openai.com/v1",
+      "desc": "标准 OpenAI 可填 https://api.openai.com/v1；只填域名时自动补 /v1。",
+      "textConfig": {
+        "type": "visible",
+        "placeholderText": "https://api.openai.com/v1"
+      }
+    },
+    {
+      "identifier": "apiKey",
+      "type": "text",
+      "title": "API Key",
+      "desc": "Chat/Responses 默认 Bearer；Claude 默认 x-api-key。自定义请求头可覆盖。",
+      "textConfig": {
+        "type": "secure",
+        "placeholderText": "API Key"
+      }
+    },
+    {
+      "identifier": "model",
+      "type": "text",
+      "title": "模型",
+      "defaultValue": "gpt-5.6",
+      "desc": "填写上游实际支持的模型 ID 或别名。",
+      "textConfig": {
+        "type": "visible",
+        "placeholderText": "例如 gpt-5.6 / gpt-reserve / claude-*"
+      }
+    },
+    {
+      "identifier": "stream",
+      "type": "menu",
+      "title": "流式输出",
+      "defaultValue": "true",
+      "desc": "推荐开启。",
+      "menuValues": [
+        {
+          "title": "开启（推荐）",
+          "value": "true"
+        },
+        {
+          "title": "关闭",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "identifier": "prompt",
+      "type": "text",
+      "title": "翻译提示词",
+      "defaultValue": "You are a professional translation engine. Translate the user's text from {{from}} to {{to}}. Preserve meaning, tone, terminology, line breaks, Markdown, and code formatting. Output only the translation, with no explanations.",
+      "desc": "支持 {{from}}、{{to}}、{{text}}、{{model}}、{{format}}、{{prompt}}。",
+      "textConfig": {
+        "type": "visible",
+        "height": 90,
+        "placeholderText": "Translate from {{from}} to {{to}}..."
+      }
+    },
+    {
+      "identifier": "customBody",
+      "type": "text",
+      "title": "自定义请求参数 JSON",
+      "defaultValue": "",
+      "desc": "供应商特殊参数统一放这里。例：火山关闭思考 {\"thinking\":{\"type\":\"disabled\"}}",
+      "textConfig": {
+        "type": "visible",
+        "height": 120,
+        "placeholderText": "{\"thinking\":{\"type\":\"disabled\"}}"
+      }
+    },
+    {
+      "identifier": "customHeaders",
+      "type": "text",
+      "title": "自定义请求头 JSON",
+      "defaultValue": "",
+      "desc": "用于特殊中转鉴权或覆盖默认 Header。",
+      "textConfig": {
+        "type": "visible",
+        "height": 90,
+        "placeholderText": "{\"X-Custom-Header\":\"value\"}"
+      }
+    },
+    {
+      "identifier": "claudeMaxTokens",
+      "type": "text",
+      "title": "Claude max_tokens",
+      "defaultValue": "2048",
+      "desc": "仅 Claude Messages 使用。",
+      "textConfig": {
+        "type": "visible",
+        "placeholderText": "2048"
+      }
+    },
+    {
+      "identifier": "anthropicVersion",
+      "type": "text",
+      "title": "Claude anthropic-version",
+      "defaultValue": "2023-06-01",
+      "desc": "仅 Claude 使用；自定义请求头可覆盖。",
+      "textConfig": {
+        "type": "visible",
+        "placeholderText": "2023-06-01"
+      }
+    }
+  ]
+}

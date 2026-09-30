@@ -1,0 +1,13 @@
+{
+  "identifier": "com.custom.ai.translate.universal",
+  "versions": [
+    {
+      "version": "1.4.0",
+      "desc": "支持 OpenAI Chat、Responses 和 Claude Messages；自定义请求参数与请求头。",
+      "sha256": "8c9c81e3a53a2ee3d78f3a82ad70ab9c66b3025b7b458bd11102146fbcf7342a",
+      "url": "https://github.com/Fowayhq/bob-plugin-ai-translate-universal/releases/download/v1.4.0/AITranslateUniversal-v1.4.0.bobplugin",
+      "minBobVersion": "1.8.0",
+      "timestamp": 1790756610000
+    }
+  ]
+}
